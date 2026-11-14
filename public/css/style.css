@@ -1,0 +1,250 @@
+/* 1. Tokeny projektu (kolory z prototypu w Figmie) */
+:root {
+  --color-brand: #2f6b3f;
+  --color-brand-soft: #e3efe4;
+  --color-text: #1d1d1b;
+  --color-muted: #6f6c66;
+  --color-surface: #ffffff;
+  --color-background: #f4f2ed;
+  --color-border: #e5e1d8;
+  --space-1: 0.5rem;
+  --space-2: 1rem;
+  --space-3: 1.5rem;
+  --space-4: 2.5rem;
+  --radius: 1rem;
+}
+
+[data-theme="dark"] {
+  --color-brand: #7cc08b;
+  --color-brand-soft: #23382a;
+  --color-text: #f2f1ed;
+  --color-muted: #b3afa6;
+  --color-surface: #22231f;
+  --color-background: #161714;
+  --color-border: #34352f;
+}
+
+/* 2. Reset i baza */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, system-ui, sans-serif;
+  line-height: 1.6;
+  color: var(--color-text);
+  background: var(--color-background);
+}
+
+h1 {
+  font-size: clamp(1.75rem, 5vw, 3rem);
+  line-height: 1.15;
+  margin-block: 0 var(--space-1);
+}
+
+h2 {
+  font-size: 1.15rem;
+  margin-block: 0 var(--space-1);
+}
+
+a {
+  color: var(--color-brand);
+  text-decoration-thickness: 0.12em;
+  text-underline-offset: 0.2em;
+}
+
+a:hover {
+  opacity: 0.8;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid var(--color-brand);
+  outline-offset: 3px;
+}
+
+.muted {
+  color: var(--color-muted);
+}
+
+/* 3. Nagłówek i stopka */
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-3);
+  background: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.logo {
+  font-weight: 800;
+  font-size: 1.35rem;
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+.logo span {
+  color: var(--color-brand);
+}
+
+.nav-list {
+  display: flex;
+  gap: var(--space-1);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nav-list a {
+  display: block;
+  padding: 0.4rem 1rem;
+  border-radius: 999px;
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+.nav-list a[aria-current="page"] {
+  background: var(--color-text);
+  color: var(--color-surface);
+}
+
+.site-footer {
+  padding: var(--space-3);
+  text-align: center;
+  color: var(--color-muted);
+  font-size: 0.9rem;
+}
+
+/* 4. Układ strony i komponenty */
+.page {
+  width: min(100% - 2rem, 72rem);
+  margin-inline: auto;
+  padding-block: var(--space-4);
+}
+
+.card {
+  padding: var(--space-3);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+}
+
+.button {
+  display: inline-block;
+  padding: 0.7rem 1.4rem;
+  border-radius: 999px;
+  background: var(--color-brand);
+  color: #ffffff;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.badge {
+  display: inline-block;
+  align-self: flex-start;
+  margin: 0;
+  padding: 0.15rem 0.7rem;
+  border-radius: 999px;
+  background: var(--color-brand-soft);
+  color: var(--color-brand);
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.price {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+/* Strona główna */
+.hero {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.map-placeholder {
+  display: grid;
+  place-content: center;
+  min-height: 16rem;
+  text-align: center;
+  background: var(--color-brand-soft);
+}
+
+/* Ranking */
+.place-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  gap: var(--space-3);
+  margin: var(--space-3) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.place-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  height: 100%;
+}
+
+.place-card h2,
+.place-card p {
+  margin: 0;
+}
+
+.place-card h2 a {
+  color: var(--color-text);
+}
+
+/* Szczegóły lokalu */
+.place-detail {
+  max-width: 48rem;
+}
+
+.breadcrumbs {
+  margin-bottom: var(--space-2);
+  color: var(--color-muted);
+}
+
+.price-list {
+  margin: 0;
+}
+
+.price-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+  padding-block: var(--space-2);
+  border-top: 1px solid var(--color-border);
+}
+
+.price-row dd {
+  margin: 0;
+}
+
+/* 404 */
+.empty-state {
+  max-width: 32rem;
+  margin-inline: auto;
+  text-align: center;
+}
+
+/* 5. Większe ekrany (mobile first) */
+@media (min-width: 48rem) {
+  .hero {
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+  }
+
+  .map-placeholder {
+    min-height: 22rem;
+  }
+}
